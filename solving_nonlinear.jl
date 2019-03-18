@@ -1,0 +1,8 @@
+#Solving a non-linear equation 
+
+
+#The objective of the next exercise is to introduce the young numerical chemical engineering to solving a non-linear equations using the Matlab function fsolve (see “help fsolve”). As example we will consider finding the roots of the characteristic polynomial of a 2-by-2 matrix A. If A = [1 0; 2 3], then the characteristic polynomial of A is given by p(x) = x^2 - 4 * x + 3 = (x-1) * (x-3). As p(x=1) =0 and p(x=3) = 0, the polynomial p(x) has roots x=1 and x=3. These two roots define the eigenvalues of A. The objective of this exercise is to compute the eigenvalues of A using the Matlab function fsolve (in practice more efficient numerical linear algebra methods do exist). This exercise consists of three of steps
+
+#step 1/3: constructing the characteristic polynomial: given the matrix A = [1 0; 2 3], the Matlab function poly (see “help poly”) computes the coefficient of the characteric polynomial of A. Assume that pc = polyI(A); 
+#step 2/3: plotting the characteristic polynomial: the Matlab function polyval (see help polyval) allows to evaluate a polynomial. This function requires two input values. The call polyval(pc,x) evaluates the polynomial defined by pc in the input argument x. To plot the characteristic polynomial of A, we will define first an anonymous function myfun = @(x)polyval(pc,x). Then myfun(x) = polyeval(pc,x) (the argument pc in hidden in the definition of myfun). Next we set xx = [0:0.01:5] and yy = myfun(xx) and call plot(xx,yy); 
+#step 3/3: finding the zero of the characteristic polynomial. The roots of the characteric polynomial can now be found using the fsolve function. Try fsolve(myfun,0) and fsolve(myfun,5) and compare the answers found. 
